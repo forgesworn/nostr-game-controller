@@ -45,7 +45,7 @@ data class Spec(val name: String, val slots: Map<String, Slot>,val layout: Contr
     companion object {
         val keys = setOf("joyL", "joyR", "A", "B", "X", "Y", "L1", "L2", "R1", "R2", "start", "select", "dpadU", "dpadD", "dpadL", "dpadR")
         fun decode(json: JSONObject): Spec {
-            require(json.toString().toByteArray(Charsets.UTF_8).size <= 49152 && json.get("version") == 1)
+            require(json.toString().toByteArray(Charsets.UTF_8).size <= 49152 && json.get("version") is Number && json.getDouble("version") == 1.0)
             val name = json.getString("name"); require(name.length <= 128)
             val slots = json.getJSONObject("slots"); require(slots.length() <= 16)
             val result = linkedMapOf<String, Slot>()

@@ -38,7 +38,7 @@ data class ControllerLayout(val portrait: Map<String,ControlPlacement>?,val land
     }
     companion object {
         fun decode(value: JSONObject,keys: Set<String>): ControllerLayout {
-            require(value.get("version") == 1 && (value.has("portrait") || value.has("landscape")))
+            require(value.get("version") is Number && value.getDouble("version") == 1.0 && (value.has("portrait") || value.has("landscape")))
             fun orientation(name: String): Map<String,ControlPlacement>? {
                 if(!value.has(name)) return null
                 val map = value.getJSONObject(name); require(map.keys().asSequence().toSet() == keys)
