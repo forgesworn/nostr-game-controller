@@ -30,6 +30,7 @@ test('Nostr profiles require the expected publisher, game, protocol and valid si
   assert.equal(controllerProfileFromEvent(event,'d'.repeat(64),'rocket-rally',()=>true),null);
   assert.equal(controllerProfileFromEvent(event,event.pubkey,'different-game',()=>true),null);
   assert.equal(controllerProfileFromEvent(event,event.pubkey,'rocket-rally',()=>false),null);
+  assert.equal(controllerProfileFromEvent(event,event.pubkey,'rocket-rally',async()=>true),null);
   assert.equal(controllerProfileFromEvent({...event,tags:[...event.tags,['d','rocket-rally']]},event.pubkey,'rocket-rally',()=>true),null);
   assert.equal(controllerProfileFromEvent({...event,content:'{}'},event.pubkey,'rocket-rally',()=>true),null);
 });

@@ -20,7 +20,7 @@ export function controllerProfileFromEvent(
     const d = event.tags.filter(tag=>tag[0] === 'd'), protocol = event.tags.filter(tag=>tag[0] === 'protocol');
     if(d.length !== 1 || d[0]?.length !== 2 || d[0][1] !== gameId || protocol.length !== 1 || protocol[0]?.length !== 3
       || protocol[0][1] !== 'nostr-game-controller' || protocol[0][2] !== '1') return null;
-    if(!verifySignature(event)) return null;
+    if(verifySignature(event) !== true) return null;
     const spec: unknown = JSON.parse(event.content);
     return isControllerSpec(spec) ? spec : null;
   } catch { return null; }
