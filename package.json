@@ -7,11 +7,29 @@
   "scripts": {
     "build": "tsup",
     "typecheck": "tsc --noEmit",
-    "test": "npm run build && node --test test-profile.mjs"
+    "test": "npm run build && node --test test-profile.mjs",
+    "check": "npm run typecheck && npm test"
   },
   "devDependencies": {
     "nostr-tools": "2.23.3",
     "tsup": "8.5.1",
     "typescript": "5.9.3"
-  }
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./browser": {
+      "types": "./dist/browser.d.ts",
+      "import": "./dist/browser.js",
+      "require": "./dist/browser.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "controller-profile.schema.json",
+    "examples"
+  ]
 }

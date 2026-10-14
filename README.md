@@ -12,7 +12,7 @@ An experimental open NIP proposal for game-defined phone controllers. Games desc
 The reference validates layout/data limits and signed profiles, with publisher trust supplied by the caller. The browser module includes an opt-in publisher-game bridge that provides a standard virtual gamepad and preserves physical input. Its input channel is separate from Nostr signing and wallet authority.
 
 ```ts
-import {controllerProfileFromEvent} from './dist/index.js';
+import {controllerProfileFromEvent} from '@forgesworn/nostr-game-controller';
 import {verifyEvent} from 'nostr-tools';
 const profile = controllerProfileFromEvent(event, trustedPublisher, gameId, verifyEvent);
 ```
@@ -20,11 +20,13 @@ const profile = controllerProfileFromEvent(event, trustedPublisher, gameId, veri
 A publisher game can use the browser reference with its own profile and explicitly pinned Arcade origins:
 
 ```ts
-import {installArcadeGameController} from './dist/browser.js';
+import {installArcadeGameController} from '@forgesworn/nostr-game-controller/browser';
 installArcadeGameController({allowedOrigins: ['https://arcade.600.wtf'], profile});
 ```
 
 The game reads `navigator.getGamepads()`. The bridge neutralises controls if its channel becomes stale. A cabinet preload can consume the same profile announcement. Native Joystick clients currently receive selected profiles through their game session; they do not independently browse relays.
+
+An experimental package tarball is available in the [draft release](https://github.com/forgesworn/nostr-game-controller/releases/tag/draft-v0.1.0). It can be installed directly from that release; it is not published to NPM.
 
 Run `npm ci && npm run typecheck && npm test`. These checks include shared valid/malformed profiles, layout fallback, code formatting and real NIP-01 signature/tampering verification. Swift and Kotlin cores use the same fixture data in the Joystick application suites. Runtime validation is required in addition to the structural JSON schema.
 
