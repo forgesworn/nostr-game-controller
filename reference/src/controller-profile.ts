@@ -43,7 +43,7 @@ export function validGraphic(value: unknown): value is InlineGraphic {
 }
 export function validPlacement(value: unknown, stick: boolean): value is ControlPlacement {
   if (!object(value) || !bounded(value.x, 0, 1) || !bounded(value.y, 0, 1) || !bounded(value.size, stick ? 96 : 48, 192)
-    || value.shape !== undefined && !['circle', 'rounded'].includes(String(value.shape))) return false;
+    || value.shape !== undefined && (typeof value.shape !== 'string' || !['circle', 'rounded'].includes(value.shape))) return false;
   if (value.zone !== undefined) {
     const z = value.zone;
     if (!stick || !object(z) || !bounded(z.x, 0, 1) || !bounded(z.y, 0, 1) || !bounded(z.width, .1, 1) || !bounded(z.height, .1, 1)
@@ -64,10 +64,10 @@ export function isControllerSpec(value: unknown): value is ControllerSpec {
   let artwork = 0;
   for (const key of keys) {
     const slot = value.slots[key];
-    if (!slots.has(key) || !object(slot) || slot.mode !== undefined && !['heading', 'xy', 'tilt'].includes(String(slot.mode))
+    if (!slots.has(key) || !object(slot) || slot.mode !== undefined && (typeof slot.mode !== 'string' || !['heading', 'xy', 'tilt'].includes(slot.mode))
       || !colour(slot.colour) || slot.label !== undefined && (typeof slot.label !== 'string' || slot.label.length > 48)
       || slot.icon !== undefined && (typeof slot.icon !== 'string' || slot.icon.length > 64)
-      || slot.tapAction !== undefined && !slots.has(String(slot.tapAction))) return false;
+      || slot.tapAction !== undefined && (typeof slot.tapAction !== 'string' || !slots.has(slot.tapAction))) return false;
     if (slot.graphic !== undefined) { if (!validGraphic(slot.graphic)) return false; artwork += slot.graphic.png.length; }
   }
   if (artwork > 32768) return false;

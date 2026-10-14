@@ -1530,6 +1530,201 @@
           }
         }
       }
+    },
+    {
+      "name": "object-mode",
+      "valid": false,
+      "spec": {
+        "version": 1,
+        "name": "Rocket Rally",
+        "theme": {
+          "background": "#080B22",
+          "accent": "#b48cff"
+        },
+        "slots": {
+          "joyL": {
+            "mode": {
+              "toString": "xy"
+            },
+            "label": "Steer",
+            "colour": "#80efcf"
+          },
+          "A": {
+            "label": "Boost",
+            "graphic": {
+              "png": "iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABhElEQVR4nO2bMU7DQBBF/34hiJSrUNBxMhBHQHAyuhRcBcnQGLmgcbLxmsz8iTX7Smc9o9n314ojBeh0Op1Ahq9xjOzPaxg+chOI5DCq8dx6VAqI5DCiac12RAqI5FDdcMmyOgVEcqhs1mpXmQIiOVQ1WmtVlQIiOUXR5JTN15/D0bqX24eja7t9KZtOwNA4fO2691EgxNSGb/18UxswzOy1Djdf55kCQsRas6ok0KuwtTWvFBDJoUdRL1sedYnkUGXp1Jecc9TWW6eAENK6CWs362o2YGiwszRcy/CWKSACqA2pNP9HsSoU8YOmxYsSkRxaFfJ+bfXqRySHSA4ti6mOgWUfIjlEcmhd0PsYWNcnkkMkh0gOPYp6PQc86hLJIZJDr8LWcfU6VjcQcPf5/O97v+/fsNkjsNuXcqk5ixrhz4Dy+F6U962BSA5VjdbaVNif6AmAkFarKvsTPQEQs2RXaX+iJwAB1Cyr7U/0BCCIue0I+xPpExDO+PGU93+DnQ7C+QX/vpX2xo9mIAAAAABJRU5ErkJggg=="
+            },
+            "colour": "#ffc975"
+          },
+          "B": {
+            "label": "Brake",
+            "icon": "STOP"
+          },
+          "start": {
+            "label": "Pause",
+            "icon": "\u2161"
+          }
+        },
+        "layout": {
+          "version": 1,
+          "portrait": {
+            "joyL": {
+              "x": 0.24,
+              "y": 0.78,
+              "size": 144,
+              "zone": {
+                "x": 0,
+                "y": 0.28,
+                "width": 0.52,
+                "height": 0.72
+              }
+            },
+            "A": {
+              "x": 0.78,
+              "y": 0.8,
+              "size": 72
+            },
+            "B": {
+              "x": 0.73,
+              "y": 0.59,
+              "size": 56
+            },
+            "start": {
+              "x": 0.5,
+              "y": 0.13,
+              "size": 48,
+              "shape": "rounded"
+            }
+          },
+          "landscape": {
+            "joyL": {
+              "x": 0.16,
+              "y": 0.68,
+              "size": 144,
+              "zone": {
+                "x": 0,
+                "y": 0.2,
+                "width": 0.4,
+                "height": 0.8
+              }
+            },
+            "A": {
+              "x": 0.86,
+              "y": 0.7,
+              "size": 72
+            },
+            "B": {
+              "x": 0.74,
+              "y": 0.42,
+              "size": 56
+            },
+            "start": {
+              "x": 0.5,
+              "y": 0.15,
+              "size": 48,
+              "shape": "rounded"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "object-tap-action",
+      "valid": false,
+      "spec": {
+        "version": 1,
+        "name": "Rocket Rally",
+        "theme": {
+          "background": "#080B22",
+          "accent": "#b48cff"
+        },
+        "slots": {
+          "joyL": {
+            "mode": "xy",
+            "label": "Steer",
+            "colour": "#80efcf",
+            "tapAction": {
+              "toString": "A"
+            }
+          },
+          "A": {
+            "label": "Boost",
+            "graphic": {
+              "png": "iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABhElEQVR4nO2bMU7DQBBF/34hiJSrUNBxMhBHQHAyuhRcBcnQGLmgcbLxmsz8iTX7Smc9o9n314ojBeh0Op1Ahq9xjOzPaxg+chOI5DCq8dx6VAqI5DCiac12RAqI5FDdcMmyOgVEcqhs1mpXmQIiOVQ1WmtVlQIiOUXR5JTN15/D0bqX24eja7t9KZtOwNA4fO2691EgxNSGb/18UxswzOy1Djdf55kCQsRas6ok0KuwtTWvFBDJoUdRL1sedYnkUGXp1Jecc9TWW6eAENK6CWs362o2YGiwszRcy/CWKSACqA2pNP9HsSoU8YOmxYsSkRxaFfJ+bfXqRySHSA4ti6mOgWUfIjlEcmhd0PsYWNcnkkMkh0gOPYp6PQc86hLJIZJDr8LWcfU6VjcQcPf5/O97v+/fsNkjsNuXcqk5ixrhz4Dy+F6U962BSA5VjdbaVNif6AmAkFarKvsTPQEQs2RXaX+iJwAB1Cyr7U/0BCCIue0I+xPpExDO+PGU93+DnQ7C+QX/vpX2xo9mIAAAAABJRU5ErkJggg=="
+            },
+            "colour": "#ffc975"
+          },
+          "B": {
+            "label": "Brake",
+            "icon": "STOP"
+          },
+          "start": {
+            "label": "Pause",
+            "icon": "\u2161"
+          }
+        },
+        "layout": {
+          "version": 1,
+          "portrait": {
+            "joyL": {
+              "x": 0.24,
+              "y": 0.78,
+              "size": 144,
+              "zone": {
+                "x": 0,
+                "y": 0.28,
+                "width": 0.52,
+                "height": 0.72
+              }
+            },
+            "A": {
+              "x": 0.78,
+              "y": 0.8,
+              "size": 72
+            },
+            "B": {
+              "x": 0.73,
+              "y": 0.59,
+              "size": 56
+            },
+            "start": {
+              "x": 0.5,
+              "y": 0.13,
+              "size": 48,
+              "shape": "rounded"
+            }
+          },
+          "landscape": {
+            "joyL": {
+              "x": 0.16,
+              "y": 0.68,
+              "size": 144,
+              "zone": {
+                "x": 0,
+                "y": 0.2,
+                "width": 0.4,
+                "height": 0.8
+              }
+            },
+            "A": {
+              "x": 0.86,
+              "y": 0.7,
+              "size": 72
+            },
+            "B": {
+              "x": 0.74,
+              "y": 0.42,
+              "size": 56
+            },
+            "start": {
+              "x": 0.5,
+              "y": 0.15,
+              "size": 48,
+              "shape": "rounded"
+            }
+          }
+        }
+      }
     }
   ],
   "viewports": [

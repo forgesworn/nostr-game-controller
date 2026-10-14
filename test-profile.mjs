@@ -45,3 +45,19 @@ test('NIP-01 signature verification rejects modified controller content',()=> {
   const modified = JSON.parse(JSON.stringify(signed)); modified.content = JSON.stringify(fixture.cases[0].spec);
   assert.equal(controllerProfileFromEvent(modified,signed.pubkey,'rocket-rally',verifyEvent),null);
 });
+
+test('the virtual phone preserves physical HAT directions, buttons and other pads',async()=> {
+  const {applyPhoneGamepad,neutralPhone}=await import('./dist/browser.js');
+  const descriptor=Object.getOwnPropertyDescriptor(globalThis,'navigator'),priorWindow=globalThis.window;
+  const physical={id:'Generic X-Box pad',index:0,mapping:'',axes:[0,0,0,0,0,0,-1,1],buttons:Array.from({length:17},(_,i)=>({pressed:i===3,touched:i===3,value:i===3 ? 1 : 0})),vibrationActuator:{type:'dual-rumble'}};
+  const second={id:'Other physical pad',index:1};const original=()=>[physical,second];
+  Object.defineProperty(globalThis,'navigator',{configurable:true,value:{getGamepads:original}});
+  globalThis.window={dispatchEvent:()=>true};
+  try {
+    applyPhoneGamepad({connected:true,axes:[.6,0,0,0],buttons:[true,...Array(16).fill(false)]});
+    const [pad,other]=navigator.getGamepads();assert.equal(pad.mapping,'standard');assert.equal(pad.axes[0],.6);
+    for(const i of [0,3,13,14])assert.equal(pad.buttons[i].pressed,true,String(i));assert.equal(pad.buttons[12].pressed,false);assert.equal(pad.buttons[15].pressed,false);
+    assert.equal(pad.vibrationActuator,physical.vibrationActuator);assert.equal(other,second);
+    applyPhoneGamepad(neutralPhone());assert.equal(navigator.getGamepads()[0],physical);
+  } finally {if(descriptor)Object.defineProperty(globalThis,'navigator',descriptor);else delete globalThis.navigator;globalThis.window=priorWindow;}
+});

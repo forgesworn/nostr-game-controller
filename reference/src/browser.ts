@@ -21,7 +21,10 @@ export function applyPhoneGamepad(snapshot: PhoneSnapshot): void {
       const pads = Array.from(holder.original()), s = holder.state
       if(!s.connected) return pads
       const physical = pads[0]
-      const phone = {id:'Gamestr Joystick phone',index:0,connected:true,mapping:'standard',timestamp:performance.now(),axes:s.axes.map((v,i)=>Math.abs(v)>.01 ? v : physical?.axes[i] ?? 0),buttons:s.buttons.map((v,i)=>({pressed:v || !!physical?.buttons[i]?.pressed,touched:v || !!physical?.buttons[i]?.touched,value:v ? 1 : physical?.buttons[i]?.value ?? 0})),vibrationActuator:null} as unknown as Gamepad
+      const hatX = physical && physical.mapping !== 'standard' ? physical.axes[6] ?? 0 : 0;
+      const hatY = physical && physical.mapping !== 'standard' ? physical.axes[7] ?? 0 : 0;
+      const physicalPressed = (i:number) => !!physical?.buttons[i]?.pressed || i === 12 && hatY < -.5 || i === 13 && hatY > .5 || i === 14 && hatX < -.5 || i === 15 && hatX > .5;
+      const phone = {id:'Gamestr Joystick phone',index:0,connected:true,mapping:'standard',timestamp:performance.now(),axes:s.axes.map((v,i)=>Math.abs(v)>.01 ? v : physical?.axes[i] ?? 0),buttons:s.buttons.map((v,i)=>({pressed:v || physicalPressed(i),touched:v || physicalPressed(i) || !!physical?.buttons[i]?.touched,value:v || physicalPressed(i) ? 1 : physical?.buttons[i]?.value ?? 0})),vibrationActuator:physical?.vibrationActuator ?? null} as unknown as Gamepad
       pads[0] = phone; return pads
     }
     try {Object.defineProperty(navigator,'getGamepads',{configurable:true,value:holder.installed})} catch {return}
