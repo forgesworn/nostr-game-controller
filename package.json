@@ -1,6 +1,6 @@
 {
   "name": "@forgesworn/nostr-game-controller",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "license": "MIT",
@@ -30,6 +30,7 @@
   "files": [
     "dist",
     "controller-profile.schema.json",
+    "game-definition.schema.json",
     "examples"
   ]
 }

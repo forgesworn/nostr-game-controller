@@ -1,33 +1,37 @@
-# Nostr game controller protocol
+# Gamestr game definitions and portable controllers
 
-An experimental open NIP proposal for game-defined phone controllers. Games describe sticks, buttons, portrait and landscape placement, colours, labels and small inline PNG graphics. Browser/PWA, iPhone/iPad and Android clients can render the same profile.
+The proposed standard is one publisher-owned `game.json`: identity, launch URL,
+artwork, players, scoring, capabilities and `controller.profile`. Joystick is a
+consumer of that controller section. The publisher game and catalogue read the
+same definition, instead of maintaining a separate controller-discovery identity.
 
-**Draft only:** no NIP number has been assigned. Event kind 30393 is a provisional candidate, not an allocation or reserved kind. Independent adoption and community review are needed before proposing upstream acceptance.
+- [Game definition proposal](NIP-XX-game-definitions.md), [schema](game-definition.schema.json) and [complete example](examples/rocket-rally-game.json).
+- [Controller section](NIP-XX-game-controllers.md), [schema](controller-profile.schema.json) and [profile example](examples/rocket-rally.json).
+- [Live session binding](session-v2.md); high-frequency input and private pairing credentials are not published on Nostr.
 
-- [Draft NIP](NIP-XX-game-controllers.md)
-- [Controller profile schema](controller-profile.schema.json) and [working example](examples/rocket-rally.json)
-- [Real-time WSS binding](session-v2.md)
-- [TypeScript reference](reference/src), [Swift core](reference/swift), [Kotlin core](reference/kotlin) and [shared fixtures](fixtures)
+The reference extends Arcade's existing NIP-89 kind-31990 game submission. It
+introduces no new discovery event kind. The initial standalone kind-30393 draft
+is superseded for new Gamestr discovery; legacy readers remain for compatibility.
+This game-definition extension is proposed, not an accepted NIP or a claim that
+unmodified gamestr.io already imports it. Its present metadata registry is
+[GameMetadata](https://github.com/teamgamestr/gamestr/blob/master/src/lib/gameConfig.ts).
 
-The reference validates layout/data limits and signed profiles, with publisher trust supplied by the caller. The browser module includes an opt-in publisher-game bridge that provides a standard virtual gamepad and preserves physical input. Its input channel is separate from Nostr signing and wallet authority.
+## Reference
 
-```ts
-import {controllerProfileFromEvent} from '@forgesworn/nostr-game-controller';
-import {verifyEvent} from 'nostr-tools';
-const profile = controllerProfileFromEvent(event, trustedPublisher, gameId, verifyEvent);
+TypeScript exports `controllerProfileFromGameDefinition` and
+`controllerProfileFromGameDefinitionEvent`. They extract the validated controller
+section; the complete definition schema, publisher trust and catalogue launch
+policy remain necessary. Signed discovery pins the independently trusted publisher,
+game ID, signature, URL and score-kind tags. Signatures do not grant wallet or
+signing permission. Browser, Swift and Kotlin render the same bounded profile.
+
+```sh
+npm ci
+npm run check
 ```
 
-A publisher game can use the browser reference with its own profile and explicitly pinned Arcade origins:
-
-```ts
-import {installArcadeGameController} from '@forgesworn/nostr-game-controller/browser';
-installArcadeGameController({allowedOrigins: ['https://arcade.600.wtf'], profile});
-```
-
-The game reads `navigator.getGamepads()`. The bridge neutralises controls if its channel becomes stale. A cabinet preload can consume the same profile announcement. Native Joystick clients currently receive selected profiles through their game session; they do not independently browse relays.
-
-An experimental package tarball is available in the [draft release](https://github.com/forgesworn/nostr-game-controller/releases/tag/draft-v0.1.0). It can be installed directly from that release; it is not published to NPM.
-
-Run `npm ci && npm run typecheck && npm test`. These checks include shared valid/malformed profiles, layout fallback, code formatting and real NIP-01 signature/tampering verification. Swift and Kotlin cores use the same fixture data in the Joystick application suites. Runtime validation is required in addition to the structural JSON schema.
-
-Joysticks, app artwork and store submissions are separate application work. This repository contains the protocol/reference code under MIT. No registry/NPM publication or NIP acceptance is claimed.
+Use the MIT-licensed tarball attached to the draft release directly. No npm
+registry publication is claimed. Package entry points are the shared types/readers
+and `@forgesworn/nostr-game-controller/browser` for the explicit publisher input
+bridge. Native reference sources and shared fixtures are included in this repo.
+Independent implementations and upstream review are needed for standard adoption.

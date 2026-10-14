@@ -1,8 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { createRequire } from 'node:module';
-const {finalizeEvent,verifyEvent} = createRequire(import.meta.url)('nostr-tools');
+import {finalizeEvent,verifyEvent} from 'nostr-tools';
 import { isControllerSpec,resolveControllerLayout,defaultControllerLayout,controllerProfileFromEvent,CONTROLLER_PROFILE_KIND_DRAFT,formatPairingCode,normalizePairingCode } from './dist/index.js';
 const fixture = JSON.parse(readFileSync(new URL('./fixtures/controller-profile-fixtures.json',import.meta.url)));
 test('shared profiles validate, retain every action, and fall back on collisions',()=> {
@@ -60,4 +59,28 @@ test('the virtual phone preserves physical HAT directions, buttons and other pad
     assert.equal(pad.vibrationActuator,physical.vibrationActuator);assert.equal(other,second);
     applyPhoneGamepad(neutralPhone());assert.equal(navigator.getGamepads()[0],physical);
   } finally {if(descriptor)Object.defineProperty(globalThis,'navigator',descriptor);else delete globalThis.navigator;globalThis.window=priorWindow;}
+});
+
+test('a Gamestr game definition owns its controller profile and ordinary game metadata',async()=> {
+  const {controllerProfileFromGameDefinition}=await import('./dist/index.js');
+  const profile=fixture.cases[1].spec,game={manifestVersion:2,gameId:'rocket-rally',name:'Rocket Rally',url:'https://play.example.com/',players:{min:1,max:4},scoreKind:30762,controller:{adapter:'native',phoneProtocol:'gamestr-controller-v1',profile}};
+  assert.deepEqual(controllerProfileFromGameDefinition(game),profile);
+  for(const patch of [{manifestVersion:1},{gameId:'../escape'},{url:'http://play.example.com/'},{url:'https://user:secret@play.example.com/'},{controller:{...game.controller,profile:{version:1,slots:{}}}},{extra:'x'.repeat(65536)}])assert.equal(controllerProfileFromGameDefinition({...game,...patch}),null);
+  assert.equal(controllerProfileFromGameDefinition({...game,controller:{...game.controller,phoneProtocol:undefined}}),null);
+});
+
+test('NIP-89 discovery binds the controller to the complete signed game definition',async()=> {
+  const {controllerProfileFromGameDefinitionEvent,GAME_DEFINITION_KIND}=await import('./dist/index.js');
+  const profile=fixture.cases[1].spec,game={manifestVersion:2,gameId:'rocket-rally',name:'Rocket Rally',url:'https://play.example.com/',controller:{adapter:'native',phoneProtocol:'gamestr-controller-v1',profile}};
+  const signed=finalizeEvent({created_at:1,kind:GAME_DEFINITION_KIND,tags:[['d','gamestr-game:rocket-rally'],['t','gamestr-game'],['k','30762'],['web',game.url]],content:JSON.stringify({name:game.name,website:game.url,gamestr_manifest:game})},new Uint8Array(32).fill(8));
+  assert.deepEqual(controllerProfileFromGameDefinitionEvent(signed,signed.pubkey,game.gameId,verifyEvent),profile);
+  assert.equal(controllerProfileFromGameDefinitionEvent(signed,'a'.repeat(64),game.gameId,verifyEvent),null);
+  assert.equal(controllerProfileFromGameDefinitionEvent(signed,signed.pubkey,'different-game',verifyEvent),null);
+  assert.equal(controllerProfileFromGameDefinitionEvent(signed,signed.pubkey,game.gameId,async()=>true),null);
+  const changed=JSON.parse(JSON.stringify(signed));const content=JSON.parse(changed.content);content.gamestr_manifest.controller.profile=fixture.cases[0].spec;changed.content=JSON.stringify(content);
+  assert.equal(controllerProfileFromGameDefinitionEvent(changed,signed.pubkey,game.gameId,verifyEvent),null);
+  for(const patch of [{tags:[...signed.tags,['d','gamestr-game:rocket-rally']]},{tags:signed.tags.filter(t=>t[0]!=='web')},{kind:30393}])assert.equal(controllerProfileFromGameDefinitionEvent({...signed,...patch},signed.pubkey,game.gameId,()=>true),null);
+  assert.equal(controllerProfileFromGameDefinitionEvent({...signed,content:JSON.stringify({gamestr_manifest:{...game,gameId:'different-game'}})},signed.pubkey,game.gameId,()=>true),null);
+  assert.equal(controllerProfileFromGameDefinitionEvent({...signed,content:JSON.stringify({website:'https://different.example/',gamestr_manifest:game})},signed.pubkey,game.gameId,()=>true),null);
+  assert.deepEqual(controllerProfileFromGameDefinitionEvent(signed,signed.pubkey,game.gameId,event=>{event.content='{}';return true}),profile);
 });

@@ -1,1 +1,1 @@
-Source: Joystick controller implementation revision ed068893f8f2ac44207eaf52a0a5d7ff926c6c4f. Reference code and fixtures are published under the included MIT licence. This draft has no official NIP number or kind allocation.
+Reference source: forgesworn/joystick revision 7ac8091765b5585c2a002ab258a29046e4124369. Game definitions extend the existing NIP-89 submission with a controller section. This extension is proposed, with no official game-definition NIP number or upstream gamestr.io adoption claimed. MIT licence applies to the reference.

@@ -1,6 +1,7 @@
 import type { ControllerSpec } from './index.js';
 import { isControllerSpec } from './controller-profile.js';
-/** Experimental candidate only. No NIP number or kind allocation has been granted. */
+/** @deprecated Initial standalone-profile draft only. New discovery embeds
+ * controller.profile in the NIP-89 Gamestr game definition; see game-definition. */
 export const CONTROLLER_PROFILE_KIND_DRAFT = 30393;
 export interface ControllerProfileEvent {
   id: string; pubkey: string; created_at: number; kind: number;

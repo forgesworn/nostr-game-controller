@@ -36,6 +36,7 @@ export const CONTROLLER_WS_ENDPOINT_DEFAULT = 'wss://controller.pallasite.app/';
 export * from './controller-profile.js';
 export * from './thumb-layout.js';
 export * from './nostr-profile.js';
+export * from './game-definition.js';
 import type { InlineGraphic, ControllerLayout, ControllerTheme } from './controller-profile.js';
 
 /** Group human-facing six-character codes without changing wire identifiers. */

@@ -3,33 +3,16 @@ NIP-XX: Declarative game controllers
 
 `draft` `optional`
 
-This is an experimental proposal, published for interoperability review. No NIP number has been assigned. Kind **30393 is a provisional candidate**, not an allocation; deployments must agree on a kind and migrate if review assigns another. Registry checks do not reserve a kind.
+This is an experimental proposal, published for interoperability review. No NIP number has been assigned. This is the controller section of the proposed Gamestr game definition; new discovery uses the existing NIP-89 submission kind rather than reserving a separate controller kind.
 
 A game describes the controls it needs and their presentation. A player can use any compatible controller client: browser/PWA, iPhone, iPad, Android or another implementation. The game interprets the inputs; the controller renders declarative data. Profiles do not contain executable code, player identities, private pairing credentials or signing grants.
 
-Public profile discovery
-------------------------
+Game definition ownership
+-------------------------
 
-A publisher MAY publish a NIP-01 signed addressable event:
+This profile is the `controller.profile` section of the publisher's [Gamestr game definition](NIP-XX-game-definitions.md). Name, launch URL, catalogue artwork, players, scoring and capabilities live in that same definition. New discovery uses its existing NIP-89 kind-31990 submission record; the initial standalone candidate 30393 is superseded. Its legacy reader remains available for early adopters.
 
-```json
-{
-  "kind": 30393,
-  "created_at": 1791936000,
-  "tags": [
-    ["d", "rocket-rally"],
-    ["protocol", "nostr-game-controller", "1"]
-  ],
-  "content": "<JSON controller profile>",
-  "pubkey": "<publisher public key>",
-  "id": "<NIP-01 event id>",
-  "sig": "<NIP-01 signature>"
-}
-```
-
-`d` MUST appear exactly once and identify the game using 1–128 lowercase ASCII letters, digits, dots, underscores or hyphens, beginning with a letter or digit. `protocol` MUST appear exactly once with the values above. A catalogue or game pins the expected publisher and game identifier independently of relay search results. Clients MUST verify the event id and signature, kind, publisher, identifier and protocol before using the content. Select the latest valid event for that address using NIP-01 addressable-event ordering. A signature establishes authorship; it does not establish that a publisher or game is trusted.
-
-Profiles can also be supplied directly by a game over its already-authorised controller session. Session-specific labels may differ from the published default. The public event advertises the profile, never a live session token or host credential. Private application data in NIP-78 is not the discovery mechanism for this interoperable profile.
+A game can supply this profile directly over its already-authorised controller session. Session-specific labels may differ from the published defaults. Pairing credentials and live input are never part of the public definition.
 
 Profile
 -------
@@ -84,7 +67,7 @@ Touch remains available for every stick. `tilt` requests a motion-friendly prese
 Live input binding
 ------------------
 
-Nostr distributes signed profiles; frame delivery is a negotiated real-time transport. The current interoperable reference binding is the Joystick version-2 WSS session, documented in [session-v2.md](session-v2.md). No Nostr event kind is assigned for high-frequency pointer samples in this draft. Other transports can adopt the same slot/input contract and explicitly negotiate their own lifecycle.
+Nostr distributes signed game definitions containing profiles; frame delivery is a negotiated real-time transport. The current interoperable reference binding is the Joystick version-2 WSS session, documented in [session-v2.md](session-v2.md). No Nostr event kind is assigned for high-frequency pointer samples in this draft. Other transports can adopt the same slot/input contract and explicitly negotiate their own lifecycle.
 
 The host sends `{"type":"controller-spec","spec":<profile>}`. Controllers send string-valued slot frames `{"k":"A","v":"1"}` / `"0"`. `xy` sticks send `<slot>-x` and `<slot>-y`, integers in [-1000,1000], with right/down positive. Heading and tilt send the slot name with heading in radians × 1000, using `atan2(down,right)`, in [-3142,3142]. All sticks also send `<slot>-thrust` (`"0"`/`"1"`), `<slot>-power` (0–1000), `<slot>-end` (`"1"`) and optional `<slot>-tap` (`"1"` for a short tap configured by `tapAction`). A tap frame is a one-shot hint; the game maps it to the configured action.
 
