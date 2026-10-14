@@ -23,6 +23,26 @@ test('default browser geometry matches every native fixture',()=> {
     for(const p of Object.values(map)) { assert.ok(p.zone.x >= -.001 && p.zone.y >= -.001 && p.zone.x+p.zone.width <= v.width+.001 && p.zone.y+p.zone.height <= v.height+.001,v.name); assert.ok(p.zone.width >= 48 && p.zone.height >= 48,v.name); }
   }
 });
+test('arcade actions stay within thumb reach with separated, generous targets',()=> {
+  const vectors = JSON.parse(readFileSync(new URL('./fixtures/thumb-layout-fixtures.json',import.meta.url))).cases.filter(v=>v.thumbCluster);
+  for(const v of vectors) {
+    const map = defaultControllerLayout(v.width,v.height,v.keys), primary = map.A;
+    assert.ok(primary.zone.width >= 100 && primary.zone.height >= 48,v.name);
+    assert.ok(v.width-primary.x <= 116 && v.height-primary.y <= 72,v.name);
+    const actions = Object.entries(map).filter(([key])=>key !== 'start' && !key.startsWith('joy'));
+    for(const [key,p] of actions) assert.ok(Math.hypot(p.x-primary.x,p.y-primary.y) <= 180,`${v.name}: ${key} thumb reach`);
+    for(let i=0;i<actions.length;i++) for(let j=i+1;j<actions.length;j++) {
+      const a = actions[i][1].zone, b = actions[j][1].zone;
+      const gap = Math.max(b.x-a.x-a.width,a.x-b.x-b.width,b.y-a.y-a.height,a.y-b.y-b.height);
+      assert.ok(gap >= 9.999,`${v.name}: ${actions[i][0]} / ${actions[j][0]} spacing`);
+    }
+    for(const [key,expected] of Object.entries(v.expectedControls ?? {})) {
+      const p = map[key];
+      for(const field of ['x','y','size']) assert.ok(Math.abs(p[field]-expected[field])<.001,`${v.name}: ${key} ${field}`);
+      for(const field of ['x','y','width','height']) assert.ok(Math.abs(p.zone[field]-expected.zone[field])<.001,`${v.name}: ${key} zone ${field}`);
+    }
+  }
+});
 test('Nostr profiles require the expected publisher, game, protocol and valid signature',()=> {
   const event = {id:'a'.repeat(64),pubkey:'b'.repeat(64),sig:'c'.repeat(128),created_at:1,kind:CONTROLLER_PROFILE_KIND_DRAFT,tags:[['d','rocket-rally'],['protocol','nostr-game-controller','1']],content:JSON.stringify(fixture.cases[1].spec)};
   assert.deepEqual(controllerProfileFromEvent(event,event.pubkey,'rocket-rally',()=>true),fixture.cases[1].spec);

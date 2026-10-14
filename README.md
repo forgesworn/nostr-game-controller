@@ -35,3 +35,11 @@ registry publication is claimed. Package entry points are the shared types/reade
 and `@forgesworn/nostr-game-controller/browser` for the explicit publisher input
 bridge. Native reference sources and shared fixtures are included in this repo.
 Independent implementations and upstream review are needed for standard adoption.
+
+The reference default keeps primary actions in a broad lower-edge pad, with
+secondary actions in a compact cluster rather than positions spread across a
+tablet. Right triggers join small action sets; pause/menu controls stay separate.
+The shared 54 viewport/control fixtures include the four 600 Arcade action sets
+and eight geometry snapshots for TypeScript, Swift and Kotlin agreement. Games
+retain their action labels, graphics and explicit custom-layout support. This is
+a reference rendering improvement and does not change the wire contract.

@@ -407,6 +407,754 @@
         "dpadL",
         "dpadR"
       ]
+    },
+    {
+      "name": "pallasite-320x368",
+      "width": 320,
+      "height": 368,
+      "keys": [
+        "joyL",
+        "A",
+        "B",
+        "X",
+        "R2",
+        "start"
+      ],
+      "thumbCluster": true,
+      "expectedControls": {
+        "start": {
+          "x": 160,
+          "y": 28,
+          "size": 48,
+          "shape": "rounded",
+          "zone": {
+            "x": 122,
+            "y": 4,
+            "width": 76,
+            "height": 48
+          }
+        },
+        "A": {
+          "x": 240,
+          "y": 312,
+          "size": 80,
+          "shape": "rounded",
+          "zone": {
+            "x": 176,
+            "y": 272,
+            "width": 128,
+            "height": 80
+          }
+        },
+        "B": {
+          "x": 274.5,
+          "y": 232.5,
+          "size": 59,
+          "shape": "rounded",
+          "zone": {
+            "x": 245,
+            "y": 203,
+            "width": 59,
+            "height": 59
+          }
+        },
+        "X": {
+          "x": 205.5,
+          "y": 232.5,
+          "size": 59,
+          "shape": "rounded",
+          "zone": {
+            "x": 176,
+            "y": 203,
+            "width": 59,
+            "height": 59
+          }
+        },
+        "R2": {
+          "x": 274.5,
+          "y": 163.5,
+          "size": 59,
+          "shape": "rounded",
+          "zone": {
+            "x": 245,
+            "y": 134,
+            "width": 59,
+            "height": 59
+          }
+        },
+        "joyL": {
+          "x": 96,
+          "y": 256,
+          "size": 128,
+          "shape": "circle",
+          "zone": {
+            "x": 4,
+            "y": 125.12,
+            "width": 152.8,
+            "height": 230.88
+          }
+        }
+      }
+    },
+    {
+      "name": "neon-320x368",
+      "width": 320,
+      "height": 368,
+      "keys": [
+        "joyL",
+        "A",
+        "X",
+        "start"
+      ],
+      "thumbCluster": true,
+      "expectedControls": {
+        "start": {
+          "x": 160,
+          "y": 28,
+          "size": 48,
+          "shape": "rounded",
+          "zone": {
+            "x": 122,
+            "y": 4,
+            "width": 76,
+            "height": 48
+          }
+        },
+        "A": {
+          "x": 240,
+          "y": 312,
+          "size": 80,
+          "shape": "rounded",
+          "zone": {
+            "x": 176,
+            "y": 272,
+            "width": 128,
+            "height": 80
+          }
+        },
+        "X": {
+          "x": 274.5,
+          "y": 232.5,
+          "size": 59,
+          "shape": "rounded",
+          "zone": {
+            "x": 245,
+            "y": 203,
+            "width": 59,
+            "height": 59
+          }
+        },
+        "joyL": {
+          "x": 96,
+          "y": 256,
+          "size": 128,
+          "shape": "circle",
+          "zone": {
+            "x": 4,
+            "y": 125.12,
+            "width": 152.8,
+            "height": 230.88
+          }
+        }
+      }
+    },
+    {
+      "name": "ledger-320x368",
+      "width": 320,
+      "height": 368,
+      "keys": [
+        "joyL",
+        "A",
+        "X",
+        "B",
+        "start"
+      ],
+      "thumbCluster": true,
+      "expectedControls": {
+        "start": {
+          "x": 160,
+          "y": 28,
+          "size": 48,
+          "shape": "rounded",
+          "zone": {
+            "x": 122,
+            "y": 4,
+            "width": 76,
+            "height": 48
+          }
+        },
+        "A": {
+          "x": 240,
+          "y": 312,
+          "size": 80,
+          "shape": "rounded",
+          "zone": {
+            "x": 176,
+            "y": 272,
+            "width": 128,
+            "height": 80
+          }
+        },
+        "B": {
+          "x": 274.5,
+          "y": 232.5,
+          "size": 59,
+          "shape": "rounded",
+          "zone": {
+            "x": 245,
+            "y": 203,
+            "width": 59,
+            "height": 59
+          }
+        },
+        "X": {
+          "x": 205.5,
+          "y": 232.5,
+          "size": 59,
+          "shape": "rounded",
+          "zone": {
+            "x": 176,
+            "y": 203,
+            "width": 59,
+            "height": 59
+          }
+        },
+        "joyL": {
+          "x": 96,
+          "y": 256,
+          "size": 128,
+          "shape": "circle",
+          "zone": {
+            "x": 4,
+            "y": 125.12,
+            "width": 152.8,
+            "height": 230.88
+          }
+        }
+      }
+    },
+    {
+      "name": "fren-320x368",
+      "width": 320,
+      "height": 368,
+      "keys": [
+        "joyL",
+        "A",
+        "start"
+      ],
+      "thumbCluster": true,
+      "expectedControls": {
+        "start": {
+          "x": 160,
+          "y": 28,
+          "size": 48,
+          "shape": "rounded",
+          "zone": {
+            "x": 122,
+            "y": 4,
+            "width": 76,
+            "height": 48
+          }
+        },
+        "A": {
+          "x": 240,
+          "y": 312,
+          "size": 80,
+          "shape": "rounded",
+          "zone": {
+            "x": 176,
+            "y": 272,
+            "width": 128,
+            "height": 80
+          }
+        },
+        "joyL": {
+          "x": 96,
+          "y": 256,
+          "size": 128,
+          "shape": "circle",
+          "zone": {
+            "x": 4,
+            "y": 125.12,
+            "width": 152.8,
+            "height": 230.88
+          }
+        }
+      }
+    },
+    {
+      "name": "pallasite-390x660",
+      "width": 390,
+      "height": 660,
+      "keys": [
+        "joyL",
+        "A",
+        "B",
+        "X",
+        "R2",
+        "start"
+      ],
+      "thumbCluster": true
+    },
+    {
+      "name": "neon-390x660",
+      "width": 390,
+      "height": 660,
+      "keys": [
+        "joyL",
+        "A",
+        "X",
+        "start"
+      ],
+      "thumbCluster": true
+    },
+    {
+      "name": "ledger-390x660",
+      "width": 390,
+      "height": 660,
+      "keys": [
+        "joyL",
+        "A",
+        "X",
+        "B",
+        "start"
+      ],
+      "thumbCluster": true
+    },
+    {
+      "name": "fren-390x660",
+      "width": 390,
+      "height": 660,
+      "keys": [
+        "joyL",
+        "A",
+        "start"
+      ],
+      "thumbCluster": true
+    },
+    {
+      "name": "pallasite-667x208",
+      "width": 667,
+      "height": 208,
+      "keys": [
+        "joyL",
+        "A",
+        "B",
+        "X",
+        "R2",
+        "start"
+      ],
+      "thumbCluster": true,
+      "expectedControls": {
+        "start": {
+          "x": 333.5,
+          "y": 28,
+          "size": 48,
+          "shape": "rounded",
+          "zone": {
+            "x": 295.5,
+            "y": 4,
+            "width": 76,
+            "height": 48
+          }
+        },
+        "A": {
+          "x": 559,
+          "y": 160.33333333333331,
+          "size": 63.33333333333334,
+          "shape": "rounded",
+          "zone": {
+            "x": 467,
+            "y": 128.66666666666666,
+            "width": 184,
+            "height": 63.33333333333334
+          }
+        },
+        "B": {
+          "x": 623.6666666666667,
+          "y": 91.33333333333333,
+          "size": 54.666666666666664,
+          "shape": "rounded",
+          "zone": {
+            "x": 596.3333333333334,
+            "y": 64,
+            "width": 54.666666666666664,
+            "height": 54.666666666666664
+          }
+        },
+        "X": {
+          "x": 559.0000000000001,
+          "y": 91.33333333333333,
+          "size": 54.666666666666664,
+          "shape": "rounded",
+          "zone": {
+            "x": 531.6666666666667,
+            "y": 64,
+            "width": 54.666666666666664,
+            "height": 54.666666666666664
+          }
+        },
+        "R2": {
+          "x": 494.33333333333337,
+          "y": 91.33333333333333,
+          "size": 54.666666666666664,
+          "shape": "rounded",
+          "zone": {
+            "x": 467.00000000000006,
+            "y": 64,
+            "width": 54.666666666666664,
+            "height": 54.666666666666664
+          }
+        },
+        "joyL": {
+          "x": 116,
+          "y": 142.07999999999998,
+          "size": 99.84,
+          "shape": "circle",
+          "zone": {
+            "x": 4,
+            "y": 64,
+            "width": 322.83,
+            "height": 132
+          }
+        }
+      }
+    },
+    {
+      "name": "neon-667x208",
+      "width": 667,
+      "height": 208,
+      "keys": [
+        "joyL",
+        "A",
+        "X",
+        "start"
+      ],
+      "thumbCluster": true,
+      "expectedControls": {
+        "start": {
+          "x": 333.5,
+          "y": 28,
+          "size": 48,
+          "shape": "rounded",
+          "zone": {
+            "x": 295.5,
+            "y": 4,
+            "width": 76,
+            "height": 48
+          }
+        },
+        "A": {
+          "x": 559,
+          "y": 160.33333333333331,
+          "size": 63.33333333333334,
+          "shape": "rounded",
+          "zone": {
+            "x": 467,
+            "y": 128.66666666666666,
+            "width": 184,
+            "height": 63.33333333333334
+          }
+        },
+        "X": {
+          "x": 623.6666666666667,
+          "y": 91.33333333333333,
+          "size": 54.666666666666664,
+          "shape": "rounded",
+          "zone": {
+            "x": 596.3333333333334,
+            "y": 64,
+            "width": 54.666666666666664,
+            "height": 54.666666666666664
+          }
+        },
+        "joyL": {
+          "x": 116,
+          "y": 142.07999999999998,
+          "size": 99.84,
+          "shape": "circle",
+          "zone": {
+            "x": 4,
+            "y": 64,
+            "width": 322.83,
+            "height": 132
+          }
+        }
+      }
+    },
+    {
+      "name": "ledger-667x208",
+      "width": 667,
+      "height": 208,
+      "keys": [
+        "joyL",
+        "A",
+        "X",
+        "B",
+        "start"
+      ],
+      "thumbCluster": true,
+      "expectedControls": {
+        "start": {
+          "x": 333.5,
+          "y": 28,
+          "size": 48,
+          "shape": "rounded",
+          "zone": {
+            "x": 295.5,
+            "y": 4,
+            "width": 76,
+            "height": 48
+          }
+        },
+        "A": {
+          "x": 559,
+          "y": 160.33333333333331,
+          "size": 63.33333333333334,
+          "shape": "rounded",
+          "zone": {
+            "x": 467,
+            "y": 128.66666666666666,
+            "width": 184,
+            "height": 63.33333333333334
+          }
+        },
+        "B": {
+          "x": 623.6666666666667,
+          "y": 91.33333333333333,
+          "size": 54.666666666666664,
+          "shape": "rounded",
+          "zone": {
+            "x": 596.3333333333334,
+            "y": 64,
+            "width": 54.666666666666664,
+            "height": 54.666666666666664
+          }
+        },
+        "X": {
+          "x": 559.0000000000001,
+          "y": 91.33333333333333,
+          "size": 54.666666666666664,
+          "shape": "rounded",
+          "zone": {
+            "x": 531.6666666666667,
+            "y": 64,
+            "width": 54.666666666666664,
+            "height": 54.666666666666664
+          }
+        },
+        "joyL": {
+          "x": 116,
+          "y": 142.07999999999998,
+          "size": 99.84,
+          "shape": "circle",
+          "zone": {
+            "x": 4,
+            "y": 64,
+            "width": 322.83,
+            "height": 132
+          }
+        }
+      }
+    },
+    {
+      "name": "fren-667x208",
+      "width": 667,
+      "height": 208,
+      "keys": [
+        "joyL",
+        "A",
+        "start"
+      ],
+      "thumbCluster": true,
+      "expectedControls": {
+        "start": {
+          "x": 333.5,
+          "y": 28,
+          "size": 48,
+          "shape": "rounded",
+          "zone": {
+            "x": 295.5,
+            "y": 4,
+            "width": 76,
+            "height": 48
+          }
+        },
+        "A": {
+          "x": 559,
+          "y": 152,
+          "size": 80,
+          "shape": "rounded",
+          "zone": {
+            "x": 467,
+            "y": 112,
+            "width": 184,
+            "height": 80
+          }
+        },
+        "joyL": {
+          "x": 116,
+          "y": 142.07999999999998,
+          "size": 99.84,
+          "shape": "circle",
+          "zone": {
+            "x": 4,
+            "y": 64,
+            "width": 322.83,
+            "height": 132
+          }
+        }
+      }
+    },
+    {
+      "name": "pallasite-844x250",
+      "width": 844,
+      "height": 250,
+      "keys": [
+        "joyL",
+        "A",
+        "B",
+        "X",
+        "R2",
+        "start"
+      ],
+      "thumbCluster": true
+    },
+    {
+      "name": "neon-844x250",
+      "width": 844,
+      "height": 250,
+      "keys": [
+        "joyL",
+        "A",
+        "X",
+        "start"
+      ],
+      "thumbCluster": true
+    },
+    {
+      "name": "ledger-844x250",
+      "width": 844,
+      "height": 250,
+      "keys": [
+        "joyL",
+        "A",
+        "X",
+        "B",
+        "start"
+      ],
+      "thumbCluster": true
+    },
+    {
+      "name": "fren-844x250",
+      "width": 844,
+      "height": 250,
+      "keys": [
+        "joyL",
+        "A",
+        "start"
+      ],
+      "thumbCluster": true
+    },
+    {
+      "name": "pallasite-768x960",
+      "width": 768,
+      "height": 960,
+      "keys": [
+        "joyL",
+        "A",
+        "B",
+        "X",
+        "R2",
+        "start"
+      ],
+      "thumbCluster": true
+    },
+    {
+      "name": "neon-768x960",
+      "width": 768,
+      "height": 960,
+      "keys": [
+        "joyL",
+        "A",
+        "X",
+        "start"
+      ],
+      "thumbCluster": true
+    },
+    {
+      "name": "ledger-768x960",
+      "width": 768,
+      "height": 960,
+      "keys": [
+        "joyL",
+        "A",
+        "X",
+        "B",
+        "start"
+      ],
+      "thumbCluster": true
+    },
+    {
+      "name": "fren-768x960",
+      "width": 768,
+      "height": 960,
+      "keys": [
+        "joyL",
+        "A",
+        "start"
+      ],
+      "thumbCluster": true
+    },
+    {
+      "name": "pallasite-1024x620",
+      "width": 1024,
+      "height": 620,
+      "keys": [
+        "joyL",
+        "A",
+        "B",
+        "X",
+        "R2",
+        "start"
+      ],
+      "thumbCluster": true
+    },
+    {
+      "name": "neon-1024x620",
+      "width": 1024,
+      "height": 620,
+      "keys": [
+        "joyL",
+        "A",
+        "X",
+        "start"
+      ],
+      "thumbCluster": true
+    },
+    {
+      "name": "ledger-1024x620",
+      "width": 1024,
+      "height": 620,
+      "keys": [
+        "joyL",
+        "A",
+        "X",
+        "B",
+        "start"
+      ],
+      "thumbCluster": true
+    },
+    {
+      "name": "fren-1024x620",
+      "width": 1024,
+      "height": 620,
+      "keys": [
+        "joyL",
+        "A",
+        "start"
+      ],
+      "thumbCluster": true
     }
   ]
 }

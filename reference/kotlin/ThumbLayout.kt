@@ -21,7 +21,10 @@ object ThumbLayout {
         }
         fun circle(key: String, x: Double, y: Double, size: Double) { box(key, "face", x - size / 2, y - size / 2, size, size) }
         val extraDirections = if ("joyL" in keys) listOf("dpadU", "dpadL", "dpadR", "dpadD") else emptyList()
-        val utility = (listOf("L2", "L1") + extraDirections + listOf("select", "start", "R1", "R2")).filter { it in keys }
+        val faceKeys = listOf("A", "B", "X", "Y").filter { it in keys }
+        val shoulders = listOf("R1", "R2").filter { it in keys }
+        val actionShoulders = if ("joyR" !in keys && ("joyL" in keys || keys.any { it.startsWith("dpad") }) && faceKeys.isNotEmpty() && faceKeys.size + shoulders.size <= 4) shoulders else emptyList()
+        val utility = (listOf("L2", "L1") + extraDirections + listOf("select", "start", "R1", "R2")).filter { it in keys && it !in actionShoulders }
         val columns = max(1, min(utility.size, ((w - 8) / 52).toInt()))
         val rows = if (utility.isEmpty()) 0 else (utility.size + columns - 1) / columns
         val cell = min(80.0, (w - 8) / columns)
@@ -44,6 +47,15 @@ object ThumbLayout {
                 val x = if (cols == 1) (w - bw) / 2 else if (index % 2 == 0) 16.0 else w - bw - 16
                 box(key, "answer", x, y + index / cols * (bh + 12), bw, bh)
             }
+        } else if (faces.isNotEmpty() && "joyR" !in keys) {
+            // Keep a broad primary action and compact secondary cluster beside the hand.
+            val actions = faces + actionShoulders; val secondary = actions.drop(1)
+            val cols = if (w >= 560 && available < 200) 3 else 2
+            val count = (secondary.size + cols - 1) / cols; val gap = 10.0; val bw = min(if (cols == 3) 184.0 else 160.0, w * .5 - 32)
+            val size = max(48.0, min(64.0, min((bw - (cols - 1) * gap) / cols, if (count > 0) (available - 48 - count * gap) / count else 64.0)))
+            val bh = min(80.0, available - count * (size + gap)); val x = w - 16 - bw; val y = h - 16 - bh
+            box(actions[0], "answer", x, y, bw, bh)
+            secondary.forEachIndexed { index, key -> box(key, "answer", w - 16 - size - index % cols * (size + gap), y - (index / cols + 1) * (size + gap), size, size) }
         } else if (faces.isNotEmpty()) {
             val dual = "joyR" in keys; val inboard = dual && w >= 560
             val directionInset = if ("joyL" !in keys && hasLeft) min(16.0, w * .04) else 0.0
@@ -69,7 +81,7 @@ object ThumbLayout {
             }
         }
         if ("joyL" !in keys) {
-            val size = min(56.0, min(w * .16, available / 3))
+            val size = min(56.0, min(max(48.0, (w * .5 - 32) / 3), available / 3))
             val cy = min(h - size * 1.5 - 12, max(top + size * 1.5, thumbY))
             for ((key, dx, dy) in listOf(Triple("dpadU", 0.0, -1.0), Triple("dpadD", 0.0, 1.0), Triple("dpadL", -1.0, 0.0), Triple("dpadR", 1.0, 0.0)))
                 if (key in keys) box(key, "dpad", leftX + dx * size - size / 2, cy + dy * size - size / 2, size, size)
