@@ -1,0 +1,17 @@
+{
+  "name": "@forgesworn/nostr-game-controller",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "npm run build && node --test test-profile.mjs"
+  },
+  "devDependencies": {
+    "nostr-tools": "2.23.3",
+    "tsup": "8.5.1",
+    "typescript": "5.9.3"
+  }
+}

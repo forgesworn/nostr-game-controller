@@ -1,0 +1,412 @@
+{
+  "cases": [
+    {
+      "name": "small-phone-portrait-tank",
+      "width": 320,
+      "height": 480,
+      "keys": [
+        "joyL",
+        "A",
+        "B"
+      ]
+    },
+    {
+      "name": "small-phone-portrait-tilt",
+      "width": 320,
+      "height": 480,
+      "keys": [
+        "joyL",
+        "A"
+      ]
+    },
+    {
+      "name": "small-phone-portrait-quiz",
+      "width": 320,
+      "height": 480,
+      "keys": [
+        "A",
+        "B",
+        "X",
+        "Y"
+      ]
+    },
+    {
+      "name": "small-phone-portrait-menu",
+      "width": 320,
+      "height": 480,
+      "keys": [
+        "dpadU",
+        "dpadD",
+        "dpadL",
+        "dpadR",
+        "A",
+        "B",
+        "start",
+        "select"
+      ]
+    },
+    {
+      "name": "small-phone-portrait-all",
+      "width": 320,
+      "height": 480,
+      "keys": [
+        "joyL",
+        "joyR",
+        "A",
+        "B",
+        "X",
+        "Y",
+        "L1",
+        "L2",
+        "R1",
+        "R2",
+        "start",
+        "select",
+        "dpadU",
+        "dpadD",
+        "dpadL",
+        "dpadR"
+      ]
+    },
+    {
+      "name": "phone-portrait-tank",
+      "width": 390,
+      "height": 660,
+      "keys": [
+        "joyL",
+        "A",
+        "B"
+      ]
+    },
+    {
+      "name": "phone-portrait-tilt",
+      "width": 390,
+      "height": 660,
+      "keys": [
+        "joyL",
+        "A"
+      ]
+    },
+    {
+      "name": "phone-portrait-quiz",
+      "width": 390,
+      "height": 660,
+      "keys": [
+        "A",
+        "B",
+        "X",
+        "Y"
+      ]
+    },
+    {
+      "name": "phone-portrait-menu",
+      "width": 390,
+      "height": 660,
+      "keys": [
+        "dpadU",
+        "dpadD",
+        "dpadL",
+        "dpadR",
+        "A",
+        "B",
+        "start",
+        "select"
+      ]
+    },
+    {
+      "name": "phone-portrait-all",
+      "width": 390,
+      "height": 660,
+      "keys": [
+        "joyL",
+        "joyR",
+        "A",
+        "B",
+        "X",
+        "Y",
+        "L1",
+        "L2",
+        "R1",
+        "R2",
+        "start",
+        "select",
+        "dpadU",
+        "dpadD",
+        "dpadL",
+        "dpadR"
+      ]
+    },
+    {
+      "name": "phone-landscape-tank",
+      "width": 667,
+      "height": 250,
+      "keys": [
+        "joyL",
+        "A",
+        "B"
+      ]
+    },
+    {
+      "name": "phone-landscape-tilt",
+      "width": 667,
+      "height": 250,
+      "keys": [
+        "joyL",
+        "A"
+      ]
+    },
+    {
+      "name": "phone-landscape-quiz",
+      "width": 667,
+      "height": 250,
+      "keys": [
+        "A",
+        "B",
+        "X",
+        "Y"
+      ]
+    },
+    {
+      "name": "phone-landscape-menu",
+      "width": 667,
+      "height": 250,
+      "keys": [
+        "dpadU",
+        "dpadD",
+        "dpadL",
+        "dpadR",
+        "A",
+        "B",
+        "start",
+        "select"
+      ]
+    },
+    {
+      "name": "phone-landscape-all",
+      "width": 667,
+      "height": 250,
+      "keys": [
+        "joyL",
+        "joyR",
+        "A",
+        "B",
+        "X",
+        "Y",
+        "L1",
+        "L2",
+        "R1",
+        "R2",
+        "start",
+        "select",
+        "dpadU",
+        "dpadD",
+        "dpadL",
+        "dpadR"
+      ]
+    },
+    {
+      "name": "large-phone-landscape-tank",
+      "width": 844,
+      "height": 280,
+      "keys": [
+        "joyL",
+        "A",
+        "B"
+      ]
+    },
+    {
+      "name": "large-phone-landscape-tilt",
+      "width": 844,
+      "height": 280,
+      "keys": [
+        "joyL",
+        "A"
+      ]
+    },
+    {
+      "name": "large-phone-landscape-quiz",
+      "width": 844,
+      "height": 280,
+      "keys": [
+        "A",
+        "B",
+        "X",
+        "Y"
+      ]
+    },
+    {
+      "name": "large-phone-landscape-menu",
+      "width": 844,
+      "height": 280,
+      "keys": [
+        "dpadU",
+        "dpadD",
+        "dpadL",
+        "dpadR",
+        "A",
+        "B",
+        "start",
+        "select"
+      ]
+    },
+    {
+      "name": "large-phone-landscape-all",
+      "width": 844,
+      "height": 280,
+      "keys": [
+        "joyL",
+        "joyR",
+        "A",
+        "B",
+        "X",
+        "Y",
+        "L1",
+        "L2",
+        "R1",
+        "R2",
+        "start",
+        "select",
+        "dpadU",
+        "dpadD",
+        "dpadL",
+        "dpadR"
+      ]
+    },
+    {
+      "name": "tablet-portrait-tank",
+      "width": 768,
+      "height": 960,
+      "keys": [
+        "joyL",
+        "A",
+        "B"
+      ]
+    },
+    {
+      "name": "tablet-portrait-tilt",
+      "width": 768,
+      "height": 960,
+      "keys": [
+        "joyL",
+        "A"
+      ]
+    },
+    {
+      "name": "tablet-portrait-quiz",
+      "width": 768,
+      "height": 960,
+      "keys": [
+        "A",
+        "B",
+        "X",
+        "Y"
+      ]
+    },
+    {
+      "name": "tablet-portrait-menu",
+      "width": 768,
+      "height": 960,
+      "keys": [
+        "dpadU",
+        "dpadD",
+        "dpadL",
+        "dpadR",
+        "A",
+        "B",
+        "start",
+        "select"
+      ]
+    },
+    {
+      "name": "tablet-portrait-all",
+      "width": 768,
+      "height": 960,
+      "keys": [
+        "joyL",
+        "joyR",
+        "A",
+        "B",
+        "X",
+        "Y",
+        "L1",
+        "L2",
+        "R1",
+        "R2",
+        "start",
+        "select",
+        "dpadU",
+        "dpadD",
+        "dpadL",
+        "dpadR"
+      ]
+    },
+    {
+      "name": "tablet-landscape-tank",
+      "width": 1024,
+      "height": 620,
+      "keys": [
+        "joyL",
+        "A",
+        "B"
+      ]
+    },
+    {
+      "name": "tablet-landscape-tilt",
+      "width": 1024,
+      "height": 620,
+      "keys": [
+        "joyL",
+        "A"
+      ]
+    },
+    {
+      "name": "tablet-landscape-quiz",
+      "width": 1024,
+      "height": 620,
+      "keys": [
+        "A",
+        "B",
+        "X",
+        "Y"
+      ]
+    },
+    {
+      "name": "tablet-landscape-menu",
+      "width": 1024,
+      "height": 620,
+      "keys": [
+        "dpadU",
+        "dpadD",
+        "dpadL",
+        "dpadR",
+        "A",
+        "B",
+        "start",
+        "select"
+      ]
+    },
+    {
+      "name": "tablet-landscape-all",
+      "width": 1024,
+      "height": 620,
+      "keys": [
+        "joyL",
+        "joyR",
+        "A",
+        "B",
+        "X",
+        "Y",
+        "L1",
+        "L2",
+        "R1",
+        "R2",
+        "start",
+        "select",
+        "dpadU",
+        "dpadD",
+        "dpadL",
+        "dpadR"
+      ]
+    }
+  ]
+}

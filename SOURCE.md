@@ -1,0 +1,1 @@
+Source: Joystick controller implementation revision ed068893f8f2ac44207eaf52a0a5d7ff926c6c4f. Reference code and fixtures are published under the included MIT licence. This draft has no official NIP number or kind allocation.

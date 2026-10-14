@@ -1,0 +1,149 @@
+{
+  "wireVersion": 2,
+  "pairings": [
+    {
+      "input": "ABCDEF",
+      "valid": true,
+      "session": "ABCDEF",
+      "broker": "wss://controller.pallasite.app/"
+    },
+    {
+      "input": "ABC DEF",
+      "valid": true,
+      "session": "ABCDEF",
+      "broker": "wss://controller.pallasite.app/"
+    },
+    {
+      "input": "abc-def",
+      "valid": true,
+      "session": "ABCDEF",
+      "broker": "wss://controller.pallasite.app/"
+    },
+    {
+      "input": " ABC DEF ",
+      "valid": true,
+      "session": "ABCDEF",
+      "broker": "wss://controller.pallasite.app/"
+    },
+    {
+      "input": "https://pad.forgesworn.dev/?s=aBcDeF&v=2&w=wss%3A%2F%2Fexample.test%2Fcontroller",
+      "valid": true,
+      "session": "aBcDeF",
+      "broker": "wss://example.test/controller"
+    },
+    {
+      "input": "joystick://join?s=ABCDEF&v=2",
+      "valid": true,
+      "session": "ABCDEF",
+      "broker": "wss://controller.pallasite.app/"
+    },
+    {
+      "input": "ABCD",
+      "valid": false
+    },
+    {
+      "input": "https://pad.forgesworn.dev/?s=ABCDEF",
+      "valid": false,
+      "legacy": true
+    },
+    {
+      "input": "https://pad.forgesworn.dev/?s=ABCDEF&v=2&v=1",
+      "valid": false
+    },
+    {
+      "input": "https://pad.forgesworn.dev/?s=ABCDEF&v=2&%76=2",
+      "valid": false
+    },
+    {
+      "input": "https://pad.forgesworn.dev/?s=ABCDEF&v=2&w=wss://user:secret@example.test/",
+      "valid": false
+    },
+    {
+      "input": "https://pad.forgesworn.dev/?s=ABCDEF&v=2&w=wss://example.test/?token=secret",
+      "valid": false
+    },
+    {
+      "input": "https://pad.forgesworn.dev/?s=ABCDEF&v=2&w=ws://example.test/",
+      "valid": false,
+      "insecure": true
+    },
+    {
+      "input": "javascript:alert(1)",
+      "valid": false
+    },
+    {
+      "input": "ABC D EF",
+      "valid": false
+    }
+  ],
+  "sticks": [
+    {
+      "slot": "joyL",
+      "mode": "heading",
+      "dx": 50,
+      "dy": 0,
+      "frames": [
+        {
+          "k": "joyL",
+          "v": "0"
+        },
+        {
+          "k": "joyL-thrust",
+          "v": "1"
+        },
+        {
+          "k": "joyL-power",
+          "v": "1000"
+        }
+      ]
+    },
+    {
+      "slot": "joyR",
+      "mode": "xy",
+      "dx": 100,
+      "dy": 100,
+      "frames": [
+        {
+          "k": "joyR-x",
+          "v": "707"
+        },
+        {
+          "k": "joyR-y",
+          "v": "707"
+        },
+        {
+          "k": "joyR-thrust",
+          "v": "1"
+        },
+        {
+          "k": "joyR-power",
+          "v": "1000"
+        }
+      ]
+    },
+    {
+      "slot": "joyR",
+      "mode": "xy",
+      "dx": -0.025,
+      "dy": 0,
+      "frames": [
+        {
+          "k": "joyR-x",
+          "v": "0"
+        },
+        {
+          "k": "joyR-y",
+          "v": "0"
+        },
+        {
+          "k": "joyR-thrust",
+          "v": "0"
+        },
+        {
+          "k": "joyR-power",
+          "v": "0"
+        }
+      ]
+    }
+  ]
+}
