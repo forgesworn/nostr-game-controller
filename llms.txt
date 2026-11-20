@@ -1,0 +1,15 @@
+# Gamestr game definitions and portable controllers
+
+> Draft Nostr message formats and a TypeScript reference implementation for game definitions and portable game controllers.
+
+## Documentation
+
+- [Reading and implementation guide](https://github.com/forgesworn/nostr-game-controller/blob/main/README.md): Current status and repository entry points.
+- [Game definition draft](https://github.com/forgesworn/nostr-game-controller/blob/main/NIP-XX-game-definitions.md): Game metadata and advertised actions.
+- [Controller draft](https://github.com/forgesworn/nostr-game-controller/blob/main/NIP-XX-game-controllers.md): Controller discovery and input protocol.
+
+## ForgeSworn ecosystem
+
+- [ForgeSworn library guide](https://forgesworn.dev/llms.txt): Find related libraries, tools and integration guides by task and runtime.
+- [ForgeSworn on GitHub](https://github.com/forgesworn): Browse the organisation’s public repositories.
+- [Project source](https://github.com/forgesworn/nostr-game-controller): Canonical source repository, documentation and release information.
